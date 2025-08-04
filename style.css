@@ -11,7 +11,7 @@ body {
     overflow: hidden;
 }
 
-.sticker {
+.sticker-button {
     position: absolute;
     left: 30px;
     top: 50%;
@@ -22,9 +22,20 @@ body {
     padding: 0.4em 1em;
     border-radius: 8px;
     font-size: 1rem;
-    pointer-events: none;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     letter-spacing: 1px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sticker-button:hover {
+    background: rgba(255, 255, 255, 0.6);
+    transform: translateY(-50%) scale(1.05);
+}
+
+.sticker-button:active {
+    transform: translateY(-50%) scale(0.98);
 }
 
 /* Header takes 10% of viewport height */
@@ -71,6 +82,32 @@ header {
     scroll-snap-align: start;
 }
 
+.toolbar {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center; /* Horizontally center the buttons */
+  justify-content: center; /* Vertically center the buttons */
+  position: relative;
+  z-index: 10;
+  height: 80vh; /* Give it a specific height to center within */
+  /* Optional: add a background to see the toolbar bounds */
+  /* background: rgba(255, 255, 255, 0.1); */
+}
+
+.toolbar button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+#sketchCanvas {
+  z-index: 0;
+}
+
+
+
 .content {
   display: flex;
   flex-direction: row;
@@ -95,16 +132,24 @@ header {
 }
 
 .media {
-  height: calc(100% - 40px);
-  aspect-ratio: 1 / 1;
+  height: calc(100% - 40px);        /* Fixed height (same as text-box) */
+  width: auto;                      /* Width adjusts based on image aspect ratio */
+  max-width: 50%;                   /* Prevents it from taking too much space */
   margin: 20px;
   background-color: white;
-  flex-shrink: 0;
-  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;                   /* Prevents shrinking */
 }
+
+.media img {
+  height: 100%;
+  width: auto;                      /* Maintains original aspect ratio */
+  object-fit: contain;              /* Ensures image fits within container */
+}
+
+
 
 
 
@@ -113,6 +158,7 @@ header {
     text-align: left;
     padding: 0.5em 1em; /* Top/bottom 0.5em, left/right 1em */
     box-sizing: border-box;
+    font-size: 1.6rem;
     font-weight: bold;
 }
 
@@ -124,6 +170,7 @@ header {
     direction: ltr;
     display: block;
     margin-bottom: 20px;
+    font-size: 1.3rem;
 }
 
 .text-content ul li {
