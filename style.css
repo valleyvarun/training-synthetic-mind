@@ -148,6 +148,14 @@ header {
   object-fit: contain;              /* Ensures image fits within container */
 }
 
+.square-media {
+  height: 100%;
+  aspect-ratio: 1.2 / 1;
+  align-items: center;   /* vertical centering */
+  justify-content: center; /* horizontal centering */
+  display: flex;
+}
+
 
 
 
@@ -174,4 +182,5 @@ header {
 
 .text-content ul li {
     margin-bottom: 1em; /* Adds space between bullet points */
+    font-size: 1.2rem
 }
