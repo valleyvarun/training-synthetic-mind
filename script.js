@@ -32,3 +32,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+const imageElement = document.getElementById("experiment-image");
+const nextButton = document.getElementById("next-slide");
+
+let currentIndex = 1;
+const totalSlides = 5; // update based on how many images you have
+
+nextButton.addEventListener("click", () => {
+  currentIndex = currentIndex < totalSlides ? currentIndex + 1 : 1;
+  imageElement.src = `content/comp_experiment/comp slide ${currentIndex}.png`;
+});
