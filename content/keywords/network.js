@@ -57,7 +57,7 @@ const simulation = d3.forceSimulation(nodes)
 
 
 const link = svg.append("g")
-  .attr("stroke", "#a020f0")
+  .attr("stroke", "purple")
   .attr("stroke-width", 2)
   .attr("stroke-dasharray", "3,2")
   .attr("filter", "url(#sketchy)")
